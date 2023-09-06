@@ -1,5 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
+.color-button {
+  background-color: rgb(93, 183, 222);
+}
+
+.color-button:hover{
+  background-color: rgba(93, 183, 222,0.8);
+}
+
+.nav-list a:hover {
+  color: #5db7de;
+}
+
+.nav-list a.active {
+  color: #5db7de;
+  border-bottom: 2px solid #5db7de;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
