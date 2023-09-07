@@ -13,13 +13,13 @@ import { CommonModule } from '@angular/common';
 export class GamesListComponent implements OnInit {
   public gamesResponse: Games | undefined;
 
-  public gamesa = ['gta', 'cod', 'gow'];
   constructor(private _getGamesService: GetGamesService) {}
 
   ngOnInit(): void {
     this._getGamesService
       .getGames()
-      .subscribe((games) => (this.gamesResponse = games));
+      .subscribe((games) => {this.gamesResponse = games;console.log(games)});
+    
   }
 
   isLoading() {

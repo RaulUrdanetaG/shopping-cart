@@ -9,7 +9,7 @@ import { Games } from 'src/app/interfaces/game';
 })
 export class GetGamesService {
   private _url: string =
-    'https://api.rawg.io/api/games?key=941c11cee1cd44baa6bfb4fdb7cae169';
+    'https://api.rawg.io/api/games?key=941c11cee1cd44baa6bfb4fdb7cae169&page_size=40';
   constructor(private http: HttpClient) {}
 
   getGames(): Observable<Games> {

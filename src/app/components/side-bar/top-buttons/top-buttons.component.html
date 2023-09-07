@@ -1,0 +1,54 @@
+<div class="p-4 flex flex-col gap-3">
+  <h3 class="text-4xl">Top</h3>
+  <button
+    *ngFor="let state of buttonStates; let i = index"
+    (mouseenter)="hoverTrue(i)"
+    (mouseleave)="hoverFalse(i)"
+  >
+    <div [ngSwitch]="i">
+      <div *ngSwitchCase="0" class="flex gap-4 items-center">
+        <div
+          class="px-1.5 rounded-lg bg-slate-500 w-10 h-8"
+          [ngClass]="{ 'text-black bg-slate-200': state }"
+        >
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        Best of the year
+      </div>
+      <div *ngSwitchCase="1" class="flex gap-4 items-center">
+        <div
+          class="px-1.5 rounded-lg bg-slate-500 w-10 h-8"
+          [ngClass]="{ 'text-black bg-slate-200': state }"
+        >
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        Popular in 2022
+      </div>
+      <div *ngSwitchCase="2" class="flex gap-4 items-center">
+        <div
+          class="px-1.5 rounded-lg bg-slate-500 w-10 h-8"
+          [ngClass]="{ 'text-black bg-slate-200': state }"
+        >
+          <i class="fa-solid fa-crown"></i>
+        </div>
+        All time top
+      </div>
+    </div>
+  </button>
+</div>
+
+<!-- <div>
+  
+  <button class="flex gap-4 items-center">
+    <div></div>
+    Best of the year
+  </button>
+  <button class="flex gap-4 items-center">
+    <div></div>
+    Popular in 2022
+  </button>
+  <button class="flex gap-4 items-center">
+    <div><i class="fa-solid fa-crown"></i></div>
+    All time top
+  </button>
+</div> -->

@@ -5,10 +5,25 @@
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
 }
 
-.game-thumbnail{
+.game-card {
+  grid-template-rows: auto auto;
+}
+
+.game-thumbnail {
   max-height: 230px;
 }
 
-.game-thumbnail .thumbnail-img{
+.game-thumbnail .thumbnail-img {
   min-height: 230px;
+}
+
+.add-to-cart-button {
+  justify-self: start;
+  align-self: flex-end;
+  border: 2px solid rgb(93, 183, 222);
+}
+
+.add-to-cart-button:hover {
+  background-color: rgb(93, 183, 222);
+  color: black;
 }
