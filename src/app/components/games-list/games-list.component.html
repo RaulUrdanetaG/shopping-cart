@@ -1,30 +1,53 @@
 <div *ngIf="isLoading(); else elseBlock">Loading...</div>
 
 <ng-template #elseBlock>
-  <div *ngFor="let game of gamesResponse?.results">
-    <img class="w-4 h-4" src="{{ game.background_image }}" alt="" />
-    <div class="game-platforms flex gap-2">
-      <div *ngFor="let parent_platform of game.parent_platforms">
-        <div [ngSwitch]="parent_platform.platform.name">
-          <div *ngSwitchCase="'Xbox'"><i class="fa-brands fa-xbox"></i></div>
-          <div *ngSwitchCase="'PC'"><i class="fa-brands fa-windows"></i></div>
-          <div *ngSwitchCase="'PlayStation'">
-            <i class="fa-brands fa-playstation"></i>
-          </div>
-          <div *ngSwitchCase="'Android'">
-            <i class="fa-brands fa-android"></i>
-          </div>
-          <div *ngSwitchCase="'Apple Macintosh'">
-            <i class="fa-brands fa-apple"></i>
-          </div>
-          <div *ngSwitchCase="'Linux'"><i class="fa-brands fa-linux"></i></div>
-          <div *ngSwitchCase="'Nintendo'">
-            <i class="fa-solid fa-n"></i>
+  <div class="games-grid m-8">
+    <div
+      class="max-w-80 flex flex-col justify-between bg-white dark:bg-slate-900 dark:text-white rounded-lg"
+      *ngFor="let game of gamesResponse?.results"
+    >
+      <div class="game-thumbnail min-w-full overflow-hidden rounded-t-lg">
+        <img class="thumbnail-img"
+          src="{{ game.background_image }}"
+          alt="{{ game.slug }}-thumbnail"
+        />
+      </div>
+      <div class="game-info flex flex-col justify-between">
+        <div class="game-platforms flex gap-2 px-4 py-2">
+          <div *ngFor="let parent_platform of game.parent_platforms">
+            <div [ngSwitch]="parent_platform.platform.name">
+              <div *ngSwitchCase="'Xbox'">
+                <i class="fa-brands fa-xbox"></i>
+              </div>
+              <div *ngSwitchCase="'PC'">
+                <i class="fa-brands fa-windows"></i>
+              </div>
+              <div *ngSwitchCase="'PlayStation'">
+                <i class="fa-brands fa-playstation"></i>
+              </div>
+              <div *ngSwitchCase="'Android'">
+                <i class="fa-brands fa-android"></i>
+              </div>
+              <div *ngSwitchCase="'Apple Macintosh'">
+                <i class="fa-brands fa-apple"></i>
+              </div>
+              <div *ngSwitchCase="'Linux'">
+                <i class="fa-brands fa-linux"></i>
+              </div>
+              <div *ngSwitchCase="'Nintendo'">
+                <i class="fa-solid fa-n"></i>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="flex justify-between px-4">
+          <h2 class="text-2xl">{{ game.name }}</h2>
+          <p>${{ getPrice(game) }}</p>
+        </div>
+        <button class="flex gap-2 items-center m-4">
+          Add to cart <i class="fa-solid fa-cart-arrow-down"></i>
+        </button>
       </div>
     </div>
-    <p>${{ getPrice(game) }}</p>
-    <p>{{ game.name }}</p>
   </div>
 </ng-template>

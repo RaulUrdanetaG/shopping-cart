@@ -1,11 +1,11 @@
-export interface Root {
+export interface Games {
   count: number
   next: string
   previous: any
-  results: Result[]
+  results: Game[]
 }
 
-export interface Result {
+export interface Game {
   id: number
   slug: string
   name: string

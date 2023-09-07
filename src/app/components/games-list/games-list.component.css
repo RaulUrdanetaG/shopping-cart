@@ -1,0 +1,14 @@
+.games-grid {
+  display: grid;
+  gap: 15px;
+  max-height: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+}
+
+.game-thumbnail{
+  max-height: 230px;
+}
+
+.game-thumbnail .thumbnail-img{
+  min-height: 230px;
+}
