@@ -1,6 +1,6 @@
 <div
   *ngIf="isLoading(); else elseBlock"
-  class="flex items-center gap-3 align-middle justify-center min-h-full"
+  class="flex items-center gap-3 align-middle justify-center min-h-screen"
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,8 @@
 </div>
 
 <ng-template #elseBlock>
-  <div class="games-grid my-8 mr-8 ml-2">
+  <h2>{{ filterTitle }}</h2>
+  <div class="games-grid my-8 mr-4 ml-2">
     <div
       class="game-card shadow-sm shadow-black dark:shadow-slate-700 max-w-80 grid bg-white dark:bg-slate-900 dark:text-white rounded-lg"
       *ngFor="let game of gamesResponse?.results"

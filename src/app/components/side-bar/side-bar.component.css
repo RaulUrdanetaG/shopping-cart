@@ -1,0 +1,9 @@
+.side-bar {
+  max-height: 1000px;
+}
+
+.side-bar::-webkit-scrollbar {
+  background-color: #1e293b;
+  width: 3px;
+  margin-left: 10px;
+}

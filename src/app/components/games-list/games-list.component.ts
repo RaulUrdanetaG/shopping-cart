@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Games, Game } from 'src/app/interfaces/game';
 import { GetGamesService } from 'src/app/services/games/get-games.service';
 import { CommonModule } from '@angular/common';
+import { FilterServiceService } from 'src/app/services/games/filter-service.service';
 
 @Component({
   selector: 'app-games-list',
@@ -11,15 +12,26 @@ import { CommonModule } from '@angular/common';
   standalone: true,
 })
 export class GamesListComponent implements OnInit {
-  public gamesResponse: Games | undefined;
+  @Input() sideBarSelection: string = '';
 
-  constructor(private _getGamesService: GetGamesService) {}
+  public gamesResponse: Games | undefined;
+  public filterTitle: string = '';
+
+  constructor(
+    private _getGamesService: GetGamesService,
+    private _filterService: FilterServiceService
+  ) {}
 
   ngOnInit(): void {
-    this._getGamesService
-      .getGames()
-      .subscribe((games) => {this.gamesResponse = games;console.log(games)});
-    
+    this._filterService.filterText$.subscribe((filterText) => {
+      this.filterTitle = filterText;
+    });
+    this._filterService.filter$.subscribe((filter) => {
+      this.gamesResponse = undefined;
+      this._getGamesService.getGames(filter).subscribe((games) => {
+        this.gamesResponse = games;
+      });
+    });
   }
 
   isLoading() {

@@ -9,10 +9,16 @@ import { Games } from 'src/app/interfaces/game';
 })
 export class GetGamesService {
   private _url: string =
-    'https://api.rawg.io/api/games?key=941c11cee1cd44baa6bfb4fdb7cae169&page_size=40';
+    'https://api.rawg.io/api/games?key=941c11cee1cd44baa6bfb4fdb7cae169';
+
+  public gamesResponse: Games | undefined;
   constructor(private http: HttpClient) {}
 
-  getGames(): Observable<Games> {
-    return this.http.get<Games>(this._url);
+  getGames(filter: string = ''): Observable<Games> {
+    if (filter === '') {
+      return this.http.get<Games>(this._url + '&page_size=40');
+    } else {
+      return this.http.get<Games>(this._url + filter);
+    }
   }
 }
