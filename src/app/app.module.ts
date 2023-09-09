@@ -9,9 +9,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { GetGamesService } from './services/games/get-games.service';
 import { ShoppingCartService } from './services/shopping-cart/shopping-cart.service';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, NavBarComponent],
+  declarations: [AppComponent, FooterComponent, NavBarComponent, SearchBarComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule],
   providers: [GetGamesService, ShoppingCartService],
   bootstrap: [AppComponent],

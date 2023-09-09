@@ -10,9 +10,15 @@ import { FilterServiceService } from 'src/app/services/games/filter-service.serv
   standalone: true,
 })
 export class SideBarComponent {
+  activeButton: string | undefined;
+
   constructor(public _filterService: FilterServiceService) {}
 
   applyFilter(filter: string) {
     this._filterService.setFilter(filter);
+  }
+
+  selectButton(button: string) {
+    this.activeButton = button;
   }
 }

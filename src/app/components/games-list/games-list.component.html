@@ -18,8 +18,8 @@
 </div>
 
 <ng-template #elseBlock>
-  <h2>{{ filterTitle }}</h2>
-  <div class="games-grid my-8 mr-4 ml-2">
+  <h2 class="section-title text-black dark:text-white text-6xl font-bold my-7">{{ filterTitle }}</h2>
+  <div class="games-grid my-2 mr-4 ml-2">
     <div
       class="game-card shadow-sm shadow-black dark:shadow-slate-700 max-w-80 grid bg-white dark:bg-slate-900 dark:text-white rounded-lg"
       *ngFor="let game of gamesResponse?.results"

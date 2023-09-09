@@ -6,6 +6,8 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Last 30 days')"
+      (click)="selectButton('last30Days')"
+      [class.activeBtn]="activeButton === 'last30Days'"
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-calendar-days"></i>
@@ -15,6 +17,8 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('This week')"
+      (click)="selectButton('thisWeek')"
+      [class.activeBtn]="activeButton === 'thisWeek'"
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-fire-flame-curved"></i>
@@ -24,6 +28,8 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Next week')"
+      (click)="selectButton('nextWeek')"
+      [class.activeBtn]="activeButton === 'nextWeek'"
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-forward"></i>

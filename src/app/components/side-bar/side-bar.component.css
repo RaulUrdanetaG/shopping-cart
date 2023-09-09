@@ -2,8 +2,23 @@
   max-height: 1000px;
 }
 
+.activeBtn{
+  background-color: rgb(203 213 225);
+}
+
 .side-bar::-webkit-scrollbar {
-  background-color: #1e293b;
+  background-color: #f1f5f9;
   width: 3px;
   margin-left: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .side-bar::-webkit-scrollbar {
+    background-color: #1e293b;
+    width: 3px;
+    margin-left: 10px;
+  }
+  .activeBtn{
+    background-color: rgb(71 85 105);
+  }
 }
