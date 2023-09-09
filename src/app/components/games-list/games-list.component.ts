@@ -39,6 +39,9 @@ export class GamesListComponent implements OnInit {
   }
 
   getPrice(game: Game) {
+    if (game.genres.some((genre) => genre.slug == 'indie')) {
+      return 9.99;
+    }
     let releaseYear = parseInt(game.released.slice(0, 4));
     let price = 5 * releaseYear - 10055.01;
     let limitedPrice = Math.min(Math.max(price, 8.99), 60);
