@@ -23,8 +23,6 @@ export class GetGamesService {
   }
 
   getSearchGames(filter: string): Observable<Games> {
-    return this.http.get<Games>(
-      this._url + '&page_size=30' + filter + '&ordering=-metacritic'
-    );
+    return this.http.get<Games>(this._url + '&page_size=30' + filter);
   }
 }

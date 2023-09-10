@@ -43,7 +43,8 @@ export class SearchBarComponent {
     }
   }
 
-  applyFilter(filter: string) {
+  applyFilter(filter: string, event: any) {
+    event.preventDefault();
     this._filterService.setSearchFilter(filter);
   }
 }

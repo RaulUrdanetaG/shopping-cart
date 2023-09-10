@@ -44,7 +44,10 @@ export class GamesListComponent implements OnInit {
     if (game.genres.some((genre) => genre.slug == 'indie')) {
       return 9.99;
     }
-    let releaseYear = parseInt(game.released.slice(0, 4));
+    if (game.released === null) {
+      return 1.99;
+    }
+    let releaseYear = parseFloat(game.released.slice(0, 4));
     let price = 5 * releaseYear - 10055.01;
     let limitedPrice = Math.min(Math.max(price, 8.99), 60);
     return parseFloat(limitedPrice.toFixed(2));
@@ -53,8 +56,6 @@ export class GamesListComponent implements OnInit {
   addToCart(id: number, name: string, price: number, image: string) {
     let game: CartProd = { id: id, name: name, price: price, imageURL: image };
     this._shoppingCartService.addProduct(game);
-    console.log(this._shoppingCartService.getCart());
-    console.log(this._shoppingCartService.getTotalPrice());
   }
 
   removeFromCart(id: number) {

@@ -22,7 +22,7 @@ export class FilterServiceService {
 
   setSearchFilter(filter: string) {
     this.filterText.next(filter);
-    this.filterSubject.next(`&search=${filter}&ordering=-metacritic`);
+    this.filterSubject.next(`&search=${filter}`);
   }
 
   filterToUrl(filter: string) {
