@@ -4,6 +4,8 @@ import { GetGamesService } from 'src/app/services/games/get-games.service';
 import { CommonModule } from '@angular/common';
 import { FilterServiceService } from 'src/app/services/games/filter-service.service';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
+import { CartProd } from 'src/app/interfaces/cart';
 
 @Component({
   selector: 'app-games-list',
@@ -18,7 +20,8 @@ export class GamesListComponent implements OnInit {
 
   constructor(
     private _getGamesService: GetGamesService,
-    private _filterService: FilterServiceService
+    private _filterService: FilterServiceService,
+    private _shoppingCartService: ShoppingCartService
   ) {}
 
   ngOnInit(): void {
@@ -44,6 +47,22 @@ export class GamesListComponent implements OnInit {
     let releaseYear = parseInt(game.released.slice(0, 4));
     let price = 5 * releaseYear - 10055.01;
     let limitedPrice = Math.min(Math.max(price, 8.99), 60);
-    return limitedPrice.toFixed(2);
+    return parseFloat(limitedPrice.toFixed(2));
+  }
+
+  addToCart(id: number, name: string, price: number, image: string) {
+    let game: CartProd = { id: id, name: name, price: price, imageURL: image };
+    this._shoppingCartService.addProduct(game);
+    console.log(this._shoppingCartService.getCart());
+    console.log(this._shoppingCartService.getTotalPrice());
+  }
+
+  removeFromCart(id: number) {
+    this._shoppingCartService.removeProduct(id);
+    console.log(this._shoppingCartService.getCart());
+  }
+
+  isAdded(id: number) {
+    return this._shoppingCartService.productExists(id);
   }
 }

@@ -19,7 +19,9 @@
 
 <ng-template #elseBlock>
   <div class="flex items-center justify-between my-7 mr-4 ml-2">
-    <h2 class="section-title text-black dark:text-white text-6xl font-bold mr-2">
+    <h2
+      class="section-title text-black dark:text-white text-6xl font-bold mr-2"
+    >
       {{ filterTitle }}
     </h2>
     <app-search-bar></app-search-bar>
@@ -29,7 +31,9 @@
       class="game-card shadow-sm shadow-black dark:shadow-slate-700 max-w-80 grid bg-white dark:bg-slate-900 dark:text-white rounded-lg"
       *ngFor="let game of gamesResponse?.results"
     >
-      <div class="game-thumbnail min-w-full overflow-hidden rounded-t-lg">
+      <div
+        class="cursor-pointer game-thumbnail min-w-full overflow-hidden rounded-t-lg"
+      >
         <img
           class="thumbnail-img"
           src="{{ game.background_image }}"
@@ -65,14 +69,31 @@
           </div>
         </div>
         <div class="flex justify-between px-4 gap-4">
-          <h2 class="text-2xl font-semibold">{{ game.name }}</h2>
+          <h2 class="cursor-pointer text-2xl font-semibold">{{ game.name }}</h2>
           <h3 class="text-xl">${{ getPrice(game) }}</h3>
         </div>
-        <button
-          class="add-to-cart-button flex gap-2 items-center m-4 px-2 py-1 text-black dark:text-white rounded-xl"
-        >
-          Add to cart <i class="fa-regular fa-plus"></i>
-        </button>
+        <div *ngIf="isAdded(game.id); else elseAdded">
+          <div
+            class="added-text flex self-start gap-2 items-center m-4 px-2 py-1 text-black dark:text-white"
+          >
+            Added<i class="fa-solid fa-check"></i>
+          </div>
+        </div>
+        <ng-template #elseAdded>
+          <button
+            class="add-to-cart-button flex gap-2 items-center m-4 px-2 py-1 text-black dark:text-white rounded-xl"
+            (click)="
+              addToCart(
+                game.id,
+                game.name,
+                getPrice(game),
+                game.background_image
+              )
+            "
+          >
+            Add to cart <i class="fa-regular fa-plus"></i>
+          </button>
+        </ng-template>
       </div>
     </div>
   </div>
