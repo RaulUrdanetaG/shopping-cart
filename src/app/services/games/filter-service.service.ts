@@ -66,22 +66,22 @@ export class FilterServiceService {
         newFilter = '&metacritic=92,100&ordering=-added';
         break;
       case 'PC':
-        newFilter = '&platforms=4';
+        newFilter = '&parent_platforms=4';
         break;
       case 'Xbox':
-        newFilter = '&platforms=3';
+        newFilter = '&parent_platforms=3';
         break;
-      case 'Play station':
-        newFilter = '&platforms=2';
+      case 'Play Station':
+        newFilter = '&parent_platforms=2&ordering=-metacritic';
         break;
       case 'Nintendo':
-        newFilter = '&platforms=7';
+        newFilter = '&parent_platforms=7&ordering=-metacritic';
         break;
       case 'Android':
-        newFilter = '&platforms=21';
+        newFilter = '&parent_platforms=8';
         break;
       case 'macOs':
-        newFilter = '&platforms=5';
+        newFilter = '&parent_platforms=5';
         break;
       case 'Linux':
         newFilter = '&platforms=6';
@@ -93,7 +93,7 @@ export class FilterServiceService {
         newFilter = '&genres=strategy';
         break;
       case 'RPG':
-        newFilter = '&genres=rpg';
+        newFilter = '&genres=5';
         break;
       case 'Shooter':
         newFilter = '&genres=shooter';

@@ -21,8 +21,6 @@ export class SearchBarComponent {
     private _filterService: FilterServiceService
   ) {}
 
-  ngOnInit(): void {}
-
   isLoading() {
     return this.gamesResponse ? false : true;
   }
