@@ -12,7 +12,7 @@ import { ShoppingCartService } from './services/shopping-cart/shopping-cart.serv
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, NavBarComponent, SearchBarComponent],
+  declarations: [AppComponent, FooterComponent, NavBarComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule],
   providers: [GetGamesService, ShoppingCartService],
   bootstrap: [AppComponent],

@@ -41,6 +41,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Best of the year')"
+      (click)="selectButton('bestOfTheYear')"
+      [class.activeBtn]="activeButton === 'bestOfTheYear'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-trophy"></i>
@@ -50,6 +53,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Popular in 2022')"
+      (click)="selectButton('popularIn2022')"
+      [class.activeBtn]="activeButton === 'popularIn2022'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-chart-line"></i>
@@ -59,6 +65,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('All time top')"
+      (click)="selectButton('allTimeTop')"
+      [class.activeBtn]="activeButton === 'allTimeTop'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-crown"></i>
@@ -70,6 +79,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('PC')"
+      (click)="selectButton('pc')"
+      [class.activeBtn]="activeButton === 'pc'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-brands fa-windows"></i>
@@ -79,6 +91,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Xbox')"
+      (click)="selectButton('xbox')"
+      [class.activeBtn]="activeButton === 'xbox'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-brands fa-xbox"></i>
@@ -88,6 +103,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Play Station')"
+      (click)="selectButton('playStation')"
+      [class.activeBtn]="activeButton === 'playStation'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-brands fa-playstation"></i>
@@ -97,6 +115,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Nintendo')"
+      (click)="selectButton('nintendo')"
+      [class.activeBtn]="activeButton === 'nintendo'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-n"></i>
@@ -106,6 +127,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Android')"
+      (click)="selectButton('android')"
+      [class.activeBtn]="activeButton === 'android'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-brands fa-android"></i>
@@ -115,6 +139,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('macOs')"
+      (click)="selectButton('macOs')"
+      [class.activeBtn]="activeButton === 'macOs'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-brands fa-apple"></i>
@@ -124,6 +151,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Linux')"
+      (click)="selectButton('linux')"
+      [class.activeBtn]="activeButton === 'linux'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-brands fa-linux"></i>
@@ -135,6 +165,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Action')"
+      (click)="selectButton('action')"
+      [class.activeBtn]="activeButton === 'action'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-hand-fist"></i>
@@ -144,6 +177,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Strategy')"
+      (click)="selectButton('strategy')"
+      [class.activeBtn]="activeButton === 'strategy'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-chess-knight"></i>
@@ -153,6 +189,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('RPG')"
+      (click)="selectButton('rpg')"
+      [class.activeBtn]="activeButton === 'rpg'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-shield"></i>
@@ -162,6 +201,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Shooter')"
+      (click)="selectButton('shooter')"
+      [class.activeBtn]="activeButton === 'shooter'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-gun"></i>
@@ -171,6 +213,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Adventure')"
+      (click)="selectButton('adventure')"
+      [class.activeBtn]="activeButton === 'adventure'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-regular fa-compass"></i>
@@ -180,6 +225,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Puzzle')"
+      (click)="selectButton('puzzle')"
+      [class.activeBtn]="activeButton === 'puzzle'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-puzzle-piece"></i>
@@ -189,6 +237,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Racing')"
+      (click)="selectButton('racing')"
+      [class.activeBtn]="activeButton === 'racing'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-flag-checkered"></i>
@@ -198,6 +249,9 @@
     <button
       class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
       (click)="applyFilter('Sports')"
+      (click)="selectButton('sports')"
+      [class.activeBtn]="activeButton === 'sports'"
+      
     >
       <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
         <i class="fa-solid fa-basketball"></i>

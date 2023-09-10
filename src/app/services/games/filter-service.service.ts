@@ -5,6 +5,7 @@ import subDays from 'date-fns/subDays';
 import previousMonday from 'date-fns/previousMonday';
 import nextSunday from 'date-fns/nextSunday';
 import { addDays } from 'date-fns';
+import { fi } from 'date-fns/locale';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,11 @@ export class FilterServiceService {
   setFilter(filter: string) {
     this.filterText.next(filter);
     this.filterSubject.next(this.filterToUrl(filter));
+  }
+
+  setSearchFilter(filter: string) {
+    this.filterText.next(filter);
+    this.filterSubject.next(`&search=${filter}`);
   }
 
   filterToUrl(filter: string) {

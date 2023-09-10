@@ -3,17 +3,16 @@ import { Games, Game } from 'src/app/interfaces/game';
 import { GetGamesService } from 'src/app/services/games/get-games.service';
 import { CommonModule } from '@angular/common';
 import { FilterServiceService } from 'src/app/services/games/filter-service.service';
+import { SearchBarComponent } from '../search-bar/search-bar.component';
 
 @Component({
   selector: 'app-games-list',
   templateUrl: './games-list.component.html',
   styleUrls: ['./games-list.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule, SearchBarComponent],
   standalone: true,
 })
 export class GamesListComponent implements OnInit {
-  @Input() sideBarSelection: string = '';
-
   public gamesResponse: Games | undefined;
   public filterTitle: string = '';
 

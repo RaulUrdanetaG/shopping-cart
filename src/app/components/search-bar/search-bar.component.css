@@ -1,0 +1,49 @@
+.search-btn {
+  border: solid 2px rgb(93, 183, 222);
+}
+
+.search-btn:hover {
+  background-color: rgb(93, 183, 222);
+  color: black;
+}
+
+.search-input {
+  width: 400px;
+}
+
+.search-list {
+  top: 150px;
+  right: 14px;
+  min-width: 400px;
+  max-width: 700px;
+  max-height: 70vh;
+}
+
+.search-list::-webkit-scrollbar {
+  background-color: #f1f5f9;
+  width: 3px;
+  margin-left: 10px;
+}
+
+.search-list::-webkit-scrollbar-thumb {
+  background-color: rgb(93, 183, 222);
+  width: 3px;
+  margin-left: 10px;
+}
+
+.game-thumbnail {
+  height: 96px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .search-list::-webkit-scrollbar {
+    background-color: #1e293b;
+    width: 3px;
+    margin-left: 10px;
+  }
+  .search-list::-webkit-scrollbar-thumb {
+    background-color: rgb(93, 183, 222);
+    width: 3px;
+    margin-left: 10px;
+  }
+}
