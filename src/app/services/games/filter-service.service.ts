@@ -5,7 +5,6 @@ import subDays from 'date-fns/subDays';
 import previousMonday from 'date-fns/previousMonday';
 import nextSunday from 'date-fns/nextSunday';
 import { addDays } from 'date-fns';
-import { fi } from 'date-fns/locale';
 
 @Injectable({
   providedIn: 'root',
