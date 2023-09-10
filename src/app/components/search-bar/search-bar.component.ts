@@ -39,10 +39,8 @@ export class SearchBarComponent {
 
   openSearch(search: string, isFocused: boolean) {
     if (search !== '' && isFocused === true) {
-      console.log('hay');
       return true;
     } else {
-      console.log('no hay');
       return false;
     }
   }
