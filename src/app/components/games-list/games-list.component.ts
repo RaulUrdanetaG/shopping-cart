@@ -25,6 +25,7 @@ export class GamesListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this._shoppingCartService.getCartLocal();
     this._filterService.filterText$.subscribe((filterText) => {
       this.filterTitle = filterText;
     });
@@ -56,6 +57,7 @@ export class GamesListComponent implements OnInit {
   addToCart(id: number, name: string, price: number, image: string) {
     let game: CartProd = { id: id, name: name, price: price, imageURL: image };
     this._shoppingCartService.addProduct(game);
+    console.log(this._shoppingCartService.getCart());
   }
 
   removeFromCart(id: number) {
