@@ -6,9 +6,11 @@ import { CartProd } from 'src/app/interfaces/cart';
 })
 export class ShoppingCartService {
   public cart: any;
+  public isOpen: boolean;
 
   constructor() {
     this.cart = [];
+    this.isOpen = false;
   }
 
   addProduct(product: CartProd) {
@@ -49,6 +51,16 @@ export class ShoppingCartService {
   }
 
   getCartLocal() {
-    this.cart = JSON.parse(localStorage.getItem('cart') ?? '');
+    this.cart = JSON.parse(localStorage.getItem('cart') ?? '[]');
+  }
+
+  // open and close cart
+
+  openCloseCart(command: string) {
+    if (command === 'open') {
+      this.isOpen = true;
+    } else if (command === 'close') {
+      this.isOpen = false;
+    }
   }
 }

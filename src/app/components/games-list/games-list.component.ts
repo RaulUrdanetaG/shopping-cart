@@ -57,12 +57,10 @@ export class GamesListComponent implements OnInit {
   addToCart(id: number, name: string, price: number, image: string) {
     let game: CartProd = { id: id, name: name, price: price, imageURL: image };
     this._shoppingCartService.addProduct(game);
-    console.log(this._shoppingCartService.getCart());
   }
 
   removeFromCart(id: number) {
     this._shoppingCartService.removeProduct(id);
-    console.log(this._shoppingCartService.getCart());
   }
 
   isAdded(id: number) {

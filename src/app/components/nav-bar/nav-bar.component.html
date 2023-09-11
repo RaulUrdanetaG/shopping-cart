@@ -5,7 +5,7 @@
     <i class="fa-solid fa-gamepad"></i>
     Game On
   </h1>
-  <div class="nav-list flex gap-6 pr-8">
+  <div class="absolute right-8 nav-list flex gap-6">
     <ul class="flex items-center text-xl gap-8">
       <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
       <li>
@@ -16,24 +16,51 @@
       </li>
       <li><a routerLink="/new" routerLinkActive="active">New</a></li>
     </ul>
-    <button>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="feather feather-shopping-cart w-7 h-7"
-      >
-        <circle cx="9" cy="21" r="1"></circle>
-        <circle cx="20" cy="21" r="1"></circle>
-        <path
-          class="stroke-black dark:stroke-white"
-          d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-        ></path>
-      </svg>
+    <button (click)="openCart()">
+      <div *ngIf="cartIsFilled(); else elseCart">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 28 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-shopping-cart w-7 h-7"
+        >
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+
+          <path
+            class="stroke-black dark:stroke-white"
+            d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+          ></path>
+
+          <circle cx="24" cy="3" r="3" stroke="none" fill="#5db7de" />
+        </svg>
+      </div>
+      <ng-template #elseCart>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 28 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-shopping-cart w-7 h-7"
+        >
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path
+            class="stroke-black dark:stroke-white"
+            d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+          ></path>
+        </svg>
+      </ng-template>
     </button>
+  </div>
+  <div *ngIf="isOpen()">
+    <app-shopping-cart></app-shopping-cart>
   </div>
 </section>
