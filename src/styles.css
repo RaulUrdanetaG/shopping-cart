@@ -4,8 +4,8 @@
   background-color: rgb(93, 183, 222);
 }
 
-.color-button:hover{
-  background-color: rgba(93, 183, 222,0.8);
+.color-button:hover {
+  background-color: rgba(93, 183, 222, 0.8);
 }
 
 .nav-list a:hover {
@@ -15,6 +15,12 @@
 .nav-list a.active {
   color: #5db7de;
   border-bottom: 2px solid #5db7de;
+}
+
+.router-blur {
+  filter: blur(1px) brightness(0.4);
+  pointer-events: none; /* Evita que los elementos detrás de la ruta sean clickeables */
+  overflow: hidden;
 }
 
 @tailwind base;

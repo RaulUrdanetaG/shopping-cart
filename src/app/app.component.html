@@ -1,4 +1,8 @@
-<div class="app min-h-screen">
+<!-- if shopping cart is open show modal and apply to everything else class router-blur -->
+<div *ngIf="isOpen()">
+  <app-shopping-cart></app-shopping-cart>
+</div>
+<div class="app min-h-screen" [ngClass]="{ 'router-blur': isOpen() }">
   <app-nav-bar></app-nav-bar>
   <router-outlet></router-outlet>
   <app-footer></app-footer>

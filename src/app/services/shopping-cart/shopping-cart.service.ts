@@ -26,6 +26,11 @@ export class ShoppingCartService {
     this.saveCartLocal(this.cart);
   }
 
+  deleteAll() {
+    this.cart = [];
+    this.saveCartLocal(this.cart);
+  }
+
   productExists(id: number) {
     return this.cart.some((prod: CartProd) => prod.id === id) ? true : false;
   }

@@ -1,4 +1,33 @@
-.cart{
-  min-width: 500px;
+.cart {
+  min-width: 300px;
   z-index: 20;
+}
+
+.cart-game-text {
+  max-width: 150px;
+}
+.games-cart {
+  height: 86vh;
+}
+
+.games-cart::-webkit-scrollbar {
+  background-color: #f1f5f9;
+  width: 3px;
+  margin-left: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .games-cart::-webkit-scrollbar {
+    background-color: #334155;
+    width: 3px;
+    margin-left: 10px;
+  }
+}
+
+.game-thumbnail .thumbnail-img {
+  min-height: 99px;
+}
+
+.check-out-button {
+  background-color: #5db7de;
 }

@@ -1,7 +1,46 @@
 <section
-  class="cart absolute top-0 right-0 bg-slate-300 dark:bg-slate-700 min-h-screen"
+  class="cart fixed flex flex-col justify-between top-0 right-0 bg-slate-300 dark:bg-slate-700 min-h-screen p-2 text-black dark:text-white text-xl"
 >
-  <button (click)="closeCart()">
-    <i class="fa-regular fa-circle-xmark text-black dark:text-white"></i>
+  <div>
+    <div class="flex justify-between mb-2">
+      <h3 class="text-3xl font-bold">{{ cart.length }} Games</h3>
+      <button
+        (click)="closeCart()"
+        class="flex items-center gap-2 justify-end p-1"
+      >
+        Close <i class="fa-regular fa-circle-xmark"></i>
+      </button>
+    </div>
+
+    <div class="games-cart overflow-auto flex flex-col gap-2">
+      <div
+        *ngFor="let game of cart"
+        class="flex flex-col gap-2 dark:bg-slate-800 rounded-lg p-2"
+      >
+        <button (click)="removeItem(game.id)" class="text-end">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+        <div class="flex items-center justify-between">
+          <div class="game-thumbnail w-44 h-24 rounded-lg overflow-hidden">
+            <img
+              class="thumbnail-img"
+              src="{{ game.imageURL }}"
+              alt="{{ game.imageURL }}-thumbnail"
+            />
+          </div>
+          <div class="cart-game-text text-end ml-2">
+            <h2>{{ game.name }}</h2>
+            <h3>${{ game.price }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>Total: ${{ getTotal() }}</div>
+  <button
+    class="check-out-button p-1 rounded-lg text-white font-bold hover:opacity-70"
+    (click)="checkOut()"
+  >
+    Check Out
   </button>
 </section>

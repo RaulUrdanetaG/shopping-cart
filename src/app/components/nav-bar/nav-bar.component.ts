@@ -13,10 +13,6 @@ export class NavBarComponent {
     this._shoppingCartService.openCloseCart('open');
   }
 
-  isOpen() {
-    return this._shoppingCartService.isOpen;
-  }
-
   cartIsFilled() {
     return this._shoppingCartService.getProductsCount() === 0 ? false : true;
   }
