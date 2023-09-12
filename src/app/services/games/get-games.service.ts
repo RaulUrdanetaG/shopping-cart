@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { Game, Games } from 'src/app/interfaces/game';
+import { carouselImage } from 'src/app/interfaces/carouselImage';
 
 @Injectable({
   providedIn: 'root',
@@ -32,7 +33,9 @@ export class GetGamesService {
     );
   }
 
-  getGameByName(name: string): Observable<Games> {
-    return this.http.get<Games>(this._url + '&search_exact=1&search=' + name);
+  getScreenShots(id: number): Observable<carouselImage> {
+    return this.http.get<carouselImage>(
+      `https://api.rawg.io/api/games/${id}/screenshots?key=941c11cee1cd44baa6bfb4fdb7cae169`
+    );
   }
 }

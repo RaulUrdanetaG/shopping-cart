@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { carouselImage } from 'src/app/interfaces/carouselImage';
+import { Image } from 'src/app/interfaces/carouselImage';
 
 @Component({
   selector: 'app-image-carousel',
@@ -10,7 +10,7 @@ import { carouselImage } from 'src/app/interfaces/carouselImage';
   standalone: true,
 })
 export class ImageCarouselComponent implements OnInit {
-  @Input() images: carouselImage[] = [];
+  @Input() images: Image[] = [];
   @Input() indicators = true;
   @Input() controls = true;
   @Input() autoSlide = false;

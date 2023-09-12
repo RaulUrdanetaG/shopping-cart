@@ -1,3 +1,7 @@
 export interface carouselImage {
-  imageSrc: string;
+  results: Image[];
+}
+
+export interface Image {
+  image: string;
 }

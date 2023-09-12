@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { carouselImage } from 'src/app/interfaces/carouselImage';
+import { carouselImage, Image } from 'src/app/interfaces/carouselImage';
 import { Game } from 'src/app/interfaces/game';
 import { GetGamesService } from 'src/app/services/games/get-games.service';
 
@@ -11,9 +11,8 @@ import { GetGamesService } from 'src/app/services/games/get-games.service';
 })
 export class GameDetailsComponent implements OnInit {
   public gameId: number = 0;
-  public game: Game | undefined;
   public gameDetails: any;
-  public images: carouselImage[] = [];
+  public images: Image[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -31,16 +30,16 @@ export class GameDetailsComponent implements OnInit {
       .getGameById(this.gameId)
       .subscribe((gameIdResponse) => {
         this.gameDetails = gameIdResponse; // gets deatils like description, ratings, etc...
-        this._getGameService
-          .getGameByName(gameIdResponse.slug)
-          .subscribe((gameResponse) => {
-            this.game = gameResponse.results[0]; // gets screnshoots.
-            this.images = [];
+      });
 
-            this.game.short_screenshots.forEach((ss) => {
-              this.images.push({ imageSrc: ss.image });
-            });
-          });
+    this._getGameService
+      .getScreenShots(this.gameId)
+      .subscribe((screenShots) => {
+        console.log(screenShots.results[0].image);
+        screenShots.results.forEach((ss) => {
+          this.images.push({ image: ss.image });
+        });
+        console.log(this.images);
       });
   }
 

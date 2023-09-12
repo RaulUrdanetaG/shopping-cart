@@ -21,8 +21,9 @@
   <div
     class="bg-slate-100 dark:bg-slate-800 text-black dark:text-white min-h-full flex flex-col"
   >
-    <app-image-carousel [images]="images" [autoSlide]="false"></app-image-carousel>
-    <p>{{ game?.name }}</p>
-    <p>{{ game?.released }}</p>
+    <app-image-carousel
+      [images]="images"
+      [autoSlide]="false"
+    ></app-image-carousel>
   </div>
 </ng-template>
