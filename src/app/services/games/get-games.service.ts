@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { Games } from 'src/app/interfaces/game';
+import { Game, Games } from 'src/app/interfaces/game';
 
 @Injectable({
   providedIn: 'root',
@@ -24,5 +24,15 @@ export class GetGamesService {
 
   getSearchGames(filter: string): Observable<Games> {
     return this.http.get<Games>(this._url + '&page_size=30' + filter);
+  }
+
+  getGameById(id: number): Observable<Game> {
+    return this.http.get<Game>(
+      `https://api.rawg.io/api/games/${id}?key=941c11cee1cd44baa6bfb4fdb7cae169`
+    );
+  }
+
+  getGameByName(name: string): Observable<Games> {
+    return this.http.get<Games>(this._url + '&search_exact=1&search=' + name);
   }
 }

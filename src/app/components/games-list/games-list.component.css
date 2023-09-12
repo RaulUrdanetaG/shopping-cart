@@ -7,6 +7,11 @@
 
 .game-card {
   grid-template-rows: auto auto;
+  
+}
+
+.game-card:hover{
+  scale: 1.01;
 }
 
 .game-thumbnail {

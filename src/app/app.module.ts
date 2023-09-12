@@ -10,6 +10,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { GetGamesService } from './services/games/get-games.service';
 import { ShoppingCartService } from './services/shopping-cart/shopping-cart.service';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ImageCarouselComponent } from './components/image-carousel/image-carousel.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,15 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     FooterComponent,
     NavBarComponent,
     ShoppingCartComponent,
+    ImageCarouselComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    CommonModule,
+    BrowserAnimationsModule,
+  ],
   providers: [GetGamesService, ShoppingCartService],
   bootstrap: [AppComponent],
 })

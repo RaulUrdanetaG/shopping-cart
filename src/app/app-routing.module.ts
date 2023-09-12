@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('./pages/home/home.module').then((m) => m.HomeModule),
+    redirectTo: '/home',
+    pathMatch: 'full',
   },
   {
     path: 'home',
@@ -20,6 +20,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'all-games/game/:slug',
+    loadChildren: () =>
+      import('./pages/game-details/game-details.module').then(
+        (m) => m.GameDetailsModule
+      ),
+  },
+  {
     path: 'categories',
     loadChildren: () =>
       import('./pages/categories/categories.module').then(
@@ -31,6 +38,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/new/new.module').then((m) => m.NewModule),
   },
+
   {
     path: '**',
     loadChildren: () =>

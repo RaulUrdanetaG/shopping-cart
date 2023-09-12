@@ -6,6 +6,7 @@ import { FilterServiceService } from 'src/app/services/games/filter-service.serv
 import { SearchBarComponent } from '../search-bar/search-bar.component';
 import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
 import { CartProd } from 'src/app/interfaces/cart';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-games-list',
@@ -21,7 +22,8 @@ export class GamesListComponent implements OnInit {
   constructor(
     private _getGamesService: GetGamesService,
     private _filterService: FilterServiceService,
-    private _shoppingCartService: ShoppingCartService
+    private _shoppingCartService: ShoppingCartService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -65,5 +67,9 @@ export class GamesListComponent implements OnInit {
 
   isAdded(id: number) {
     return this._shoppingCartService.productExists(id);
+  }
+
+  onSelect(id: number) {
+    this.router.navigate(['/all-games/game', id]);
   }
 }
