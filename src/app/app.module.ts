@@ -11,7 +11,6 @@ import { GetGamesService } from './services/games/get-games.service';
 import { ShoppingCartService } from './services/shopping-cart/shopping-cart.service';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ImageCarouselComponent } from './components/image-carousel/image-carousel.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { ImageCarouselComponent } from './components/image-carousel/image-carous
     FooterComponent,
     NavBarComponent,
     ShoppingCartComponent,
-    ImageCarouselComponent,
   ],
   imports: [
     BrowserModule,
