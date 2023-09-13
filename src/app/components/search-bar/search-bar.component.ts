@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { Games } from 'src/app/interfaces/game';
 import { GetGamesService } from 'src/app/services/games/get-games.service';
 import { FilterServiceService } from 'src/app/services/games/filter-service.service';
@@ -20,7 +20,8 @@ export class SearchBarComponent {
   constructor(
     private _getGamesService: GetGamesService,
     private _filterService: FilterServiceService,
-    private router: Router
+    private router: Router,
+    private elRef: ElementRef
   ) {}
 
   isLoading() {
@@ -52,5 +53,14 @@ export class SearchBarComponent {
 
   onClick(id: number) {
     this.router.navigate(['/all-games/game', id]);
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: MouseEvent) {
+    // check if clicks outside of the component
+    if (!this.elRef.nativeElement.contains(event.target)) {
+      // if click is outside of component
+      this.isFocused = false;
+    }
   }
 }

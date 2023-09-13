@@ -1,98 +1,98 @@
-<form
-  class="flex justify-end"
-  novalidate
-  (ngSubmit)="applyFilter(searchName, $event)"
->
-  <label
-    for="default-search"
-    class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-    >Search</label
+<div>
+  <form
+    class="flex justify-end"
+    novalidate
+    (ngSubmit)="applyFilter(searchName, $event)"
   >
-  <div class="relative">
-    <div
-      class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+    <label
+      for="default-search"
+      class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+      >Search</label
     >
-      <svg
-        class="w-4 h-4 text-gray-500 dark:text-gray-400"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 20 20"
+    <div class="relative">
+      <div
+        class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
       >
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-        />
-      </svg>
+        <svg
+          class="w-4 h-4 text-gray-500 dark:text-gray-400"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 20 20"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+          />
+        </svg>
+      </div>
+      <input
+        type="search"
+        id="default-search"
+        #input
+        autocomplete="off"
+        class="search-input block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Search games"
+        (keyup)="onType(input.value)"
+        (focus)="isFocused = true"
+        required
+      />
+      <button
+        type="submit"
+        (click)="applyFilter(searchName, $event)"
+        class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Search
+      </button>
     </div>
-    <input
-      type="search"
-      id="default-search"
-      #input
-      autocomplete="off"
-      class="search-input block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      placeholder="Search games"
-      (keyup)="onType(input.value)"
-      (focus)="isFocused = true"
-      (blur)="isFocused = false"
-      required
-    />
-    <button
-      type="submit"
-      (click)="applyFilter(searchName, $event)"
-      class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-    >
-      Search
-    </button>
-  </div>
-</form>
+  </form>
 
-<div *ngIf="openSearch(searchName, isFocused)">
-  <div
-    class="search-list absolute flex flex-col bg-white dark:bg-slate-900 rounded-lg overflow-auto border border-slate-600 border-r-0"
-  >
+  <div *ngIf="openSearch(searchName, isFocused)">
     <div
-      *ngIf="isLoading(); else elseBlock"
-      class="flex items-center gap-3 align-middle justify-center overflow-hidden"
+      class="search-list absolute flex flex-col bg-white dark:bg-slate-900 rounded-lg overflow-auto border border-slate-600 border-r-0"
+      (click)="isFocused = true"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        height="48"
-        viewBox="0 -960 960 960"
-        width="48"
-        class="animate-spin"
+      <div
+        *ngIf="isLoading(); else elseBlock"
+        class="flex items-center gap-3 align-middle justify-center overflow-hidden"
       >
-        <path
-          class="fill-black dark:fill-slate-50"
-          d="M480-80q-84 0-157-31t-127-85q-54-54-85-127T80-480q0-84 31-157t85-127q54-54 127-85t157-31q12 0 21 9t9 21q0 12-9 21t-21 9q-141 0-240.5 99.5T140-480q0 141 99.5 240.5T480-140q141 0 240.5-99.5T820-480q0-12 9-21t21-9q12 0 21 9t9 21q0 84-31 157t-85 127q-54 54-127 85T480-80Z"
-        />
-      </svg>
-      <p class="text-black dark:text-white text-4xl">Loading...</p>
-    </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="48"
+          viewBox="0 -960 960 960"
+          width="48"
+          class="animate-spin"
+        >
+          <path
+            class="fill-black dark:fill-slate-50"
+            d="M480-80q-84 0-157-31t-127-85q-54-54-85-127T80-480q0-84 31-157t85-127q54-54 127-85t157-31q12 0 21 9t9 21q0 12-9 21t-21 9q-141 0-240.5 99.5T140-480q0 141 99.5 240.5T480-140q141 0 240.5-99.5T820-480q0-12 9-21t21-9q12 0 21 9t9 21q0 84-31 157t-85 127q-54 54-127 85T480-80Z"
+          />
+        </svg>
+        <p class="text-black dark:text-white text-4xl">Loading...</p>
+      </div>
 
-    <ng-template #elseBlock>
-      <span
-        class="flex justify-start items-center p-3 gap-2 dark:shadow-slate-700 max-w-80 bg-white dark:bg-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600"
-        *ngFor="let game of gamesResponse?.results"
-      >
-        <div
-          class="game-thumbnail w-52 rounded-lg overflow-hidden"
+      <ng-template #elseBlock>
+        <span
+          class="flex justify-start items-center p-3 gap-2 dark:shadow-slate-700 max-w-80 hover:cursor-pointer bg-white dark:bg-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600"
+          *ngFor="let game of gamesResponse?.results"
           (click)="onClick(game.id)"
         >
-          <img
-            class="thumbnail-img"
-            src="{{ game.background_image }}"
-            alt="{{ game.slug }}-thumbnail"
-          />
-        </div>
+          <div class="game-thumbnail w-52 rounded-lg overflow-hidden">
+            <img
+              class="thumbnail-img"
+              src="{{ game.background_image }}"
+              alt="{{ game.slug }}-thumbnail"
+            />
+          </div>
 
-        <h2 class="text-2xl font-semibold max-w-md text-left">
-          {{ game.name }}
-        </h2>
-      </span>
-    </ng-template>
+          <h2 class="text-2xl font-semibold max-w-md text-left">
+            {{ game.name }}
+          </h2>
+        </span>
+      </ng-template>
+    </div>
   </div>
 </div>
