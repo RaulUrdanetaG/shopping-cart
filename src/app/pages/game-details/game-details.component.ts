@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { carouselImage, Image } from 'src/app/interfaces/carouselImage';
-import { Game } from 'src/app/interfaces/game';
+import { Image } from 'src/app/interfaces/carouselImage';
+import { CartProd } from 'src/app/interfaces/cart';
 import { GetGamesService } from 'src/app/services/games/get-games.service';
+import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-game-details',
@@ -16,7 +17,8 @@ export class GameDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private _getGameService: GetGamesService
+    private _getGameService: GetGamesService,
+    public _shoppingCartService: ShoppingCartService
   ) {}
 
   ngOnInit(): void {

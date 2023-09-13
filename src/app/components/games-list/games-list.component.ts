@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { FilterServiceService } from 'src/app/services/games/filter-service.service';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
 import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
-import { CartProd } from 'src/app/interfaces/cart';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,7 +21,7 @@ export class GamesListComponent implements OnInit {
   constructor(
     private _getGamesService: GetGamesService,
     private _filterService: FilterServiceService,
-    private _shoppingCartService: ShoppingCartService,
+    public _shoppingCartService: ShoppingCartService,
     private router: Router
   ) {}
 
@@ -41,32 +40,6 @@ export class GamesListComponent implements OnInit {
 
   isLoading() {
     return this.gamesResponse ? false : true;
-  }
-
-  getPrice(game: Game) {
-    if (game.genres.some((genre) => genre.slug == 'indie')) {
-      return 9.99;
-    }
-    if (game.released === null) {
-      return 1.99;
-    }
-    let releaseYear = parseFloat(game.released.slice(0, 4));
-    let price = 5 * releaseYear - 10055.01;
-    let limitedPrice = Math.min(Math.max(price, 8.99), 60);
-    return parseFloat(limitedPrice.toFixed(2));
-  }
-
-  addToCart(id: number, name: string, price: number, image: string) {
-    let game: CartProd = { id: id, name: name, price: price, imageURL: image };
-    this._shoppingCartService.addProduct(game);
-  }
-
-  removeFromCart(id: number) {
-    this._shoppingCartService.removeProduct(id);
-  }
-
-  isAdded(id: number) {
-    return this._shoppingCartService.productExists(id);
   }
 
   onSelect(id: number) {

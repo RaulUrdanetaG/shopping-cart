@@ -21,6 +21,11 @@ export class ShoppingCartService {
     }
   }
 
+  addToCart(id: number, name: string, price: number, image: string) {
+    let game: CartProd = { id: id, name: name, price: price, imageURL: image };
+    this.addProduct(game);
+  }
+
   removeProduct(id: number) {
     this.cart = this.cart.filter((prod: CartProd) => prod.id !== id);
     this.saveCartLocal(this.cart);
@@ -41,6 +46,19 @@ export class ShoppingCartService {
 
   getProductsCount() {
     return this.cart.length;
+  }
+
+  getPrice(game: any) {
+    if (game.genres.some((genre: any) => genre.slug == 'indie')) {
+      return 9.99;
+    }
+    if (game.released === null) {
+      return 1.99;
+    }
+    let releaseYear = parseFloat(game.released.slice(0, 4));
+    let price = 5 * releaseYear - 10055.01;
+    let limitedPrice = Math.min(Math.max(price, 8.99), 60);
+    return parseFloat(limitedPrice.toFixed(2));
   }
 
   getTotalPrice() {

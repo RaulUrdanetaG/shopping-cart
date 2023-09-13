@@ -19,11 +19,48 @@
 
 <ng-template #elseBlock>
   <div
-    class="bg-slate-100 dark:bg-slate-800 text-black dark:text-white min-h-full flex flex-col"
+    class="bg-slate-100 dark:bg-slate-800 text-black dark:text-white min-h-full flex"
   >
-    <app-image-carousel
-      [images]="images"
-      [autoSlide]="false"
-    ></app-image-carousel>
+    <div class="flex flex-col">
+      <button class="text-2xl">
+        <i class="fa-solid fa-arrow-left"></i> Return
+      </button>
+      <app-image-carousel
+        [images]="images"
+        [autoSlide]="true"
+      ></app-image-carousel>
+    </div>
+    <div>
+      <h2>{{ gameDetails.name }}</h2>
+      <div>
+        <div
+          *ngIf="
+            _shoppingCartService.productExists(gameDetails.id);
+            else elseAdded
+          "
+        >
+          <div
+            class="added-text flex self-start gap-2 items-center m-4 px-2 py-1 text-black dark:text-white"
+          >
+            Added<i class="fa-solid fa-check"></i>
+          </div>
+        </div>
+        <ng-template #elseAdded>
+          <button
+            class="add-to-cart-button flex gap-2 items-center m-4 px-2 py-1 text-black dark:text-white rounded-xl"
+            (click)="
+              _shoppingCartService.addToCart(
+                gameDetails.id,
+                gameDetails.name,
+                _shoppingCartService.getPrice(gameDetails),
+                gameDetails.background_image
+              )
+            "
+          >
+            Add to cart <i class="fa-regular fa-plus"></i>
+          </button>
+        </ng-template>
+      </div>
+    </div>
   </div>
 </ng-template>

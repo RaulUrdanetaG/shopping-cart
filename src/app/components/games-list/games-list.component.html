@@ -76,9 +76,11 @@
           >
             {{ game.name }}
           </h2>
-          <h3 class="text-xl">${{ getPrice(game) }}</h3>
+          <h3 class="text-xl">${{ _shoppingCartService.getPrice(game) }}</h3>
         </div>
-        <div *ngIf="isAdded(game.id); else elseAdded">
+        <div
+          *ngIf="_shoppingCartService.productExists(game.id); else elseAdded"
+        >
           <div
             class="added-text flex self-start gap-2 items-center m-4 px-2 py-1 text-black dark:text-white"
           >
@@ -89,10 +91,10 @@
           <button
             class="add-to-cart-button flex gap-2 items-center m-4 px-2 py-1 text-black dark:text-white rounded-xl"
             (click)="
-              addToCart(
+              _shoppingCartService.addToCart(
                 game.id,
                 game.name,
-                getPrice(game),
+                _shoppingCartService.getPrice(game),
                 game.background_image
               )
             "
