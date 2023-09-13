@@ -30,6 +30,7 @@ export class GameDetailsComponent implements OnInit {
       .getGameById(this.gameId)
       .subscribe((gameIdResponse) => {
         this.gameDetails = gameIdResponse; // gets deatils like description, ratings, etc...
+        this.images.unshift({ image: gameIdResponse.background_image });
       });
 
     this._getGameService

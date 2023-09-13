@@ -3,6 +3,7 @@ import { Games } from 'src/app/interfaces/game';
 import { GetGamesService } from 'src/app/services/games/get-games.service';
 import { FilterServiceService } from 'src/app/services/games/filter-service.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -18,7 +19,8 @@ export class SearchBarComponent {
 
   constructor(
     private _getGamesService: GetGamesService,
-    private _filterService: FilterServiceService
+    private _filterService: FilterServiceService,
+    private router: Router
   ) {}
 
   isLoading() {
@@ -46,5 +48,9 @@ export class SearchBarComponent {
   applyFilter(filter: string, event: any) {
     event.preventDefault();
     this._filterService.setSearchFilter(filter);
+  }
+
+  onClick(id: number) {
+    this.router.navigate(['/all-games/game', id]);
   }
 }

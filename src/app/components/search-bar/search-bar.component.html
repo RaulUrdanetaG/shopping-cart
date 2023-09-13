@@ -74,11 +74,14 @@
     </div>
 
     <ng-template #elseBlock>
-      <button
+      <span
         class="flex justify-start items-center p-3 gap-2 dark:shadow-slate-700 max-w-80 bg-white dark:bg-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600"
         *ngFor="let game of gamesResponse?.results"
       >
-        <div class="game-thumbnail w-52 rounded-lg overflow-hidden">
+        <div
+          class="game-thumbnail w-52 rounded-lg overflow-hidden"
+          (click)="onClick(game.id)"
+        >
           <img
             class="thumbnail-img"
             src="{{ game.background_image }}"
@@ -89,7 +92,7 @@
         <h2 class="text-2xl font-semibold max-w-md text-left">
           {{ game.name }}
         </h2>
-      </button>
+      </span>
     </ng-template>
   </div>
 </div>
