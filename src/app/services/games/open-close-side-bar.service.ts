@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class OpenCloseSideBarService {
-  public isOpen: boolean = true;
+  public isOpen: boolean = false;
   constructor() {}
 
   openCloseSideBar() {
