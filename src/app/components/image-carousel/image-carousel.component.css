@@ -132,3 +132,23 @@
     left: calc((70vw - 1440px) / 2);
   }
 }
+
+@media (max-width: 1082px) {
+  .carousel-container img.image-active {
+    left: 0;
+  }
+
+  .carousel {
+    height: auto;
+  }
+
+  .carousel-container img {
+    height: 100%;
+    min-width: auto;
+    border-radius: 5px;
+  }
+
+  .carousel-container img.image-active {
+    min-width: 100%;
+  }
+}

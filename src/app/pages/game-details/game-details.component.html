@@ -21,13 +21,19 @@
   <div
     class="bg-slate-100 dark:bg-slate-800 text-black dark:text-white min-h-full flex flex-col"
   >
-    <div class="flex justify-between m-5 mt-1 mb-1">
+    <div class="flex justify-between items-center gap-1 m-5 mt-1 mb-1">
       <button class="text-2xl text-left" routerLink="/all-games">
         <i class="fa-solid fa-arrow-left"></i> Return
       </button>
-      <h2 class="text-5xl font-bold">{{ gameDetails.name }}</h2>
+      <a
+        href="{{ gameDetails.website }}"
+        target="_blank"
+        rel="noreferrer"
+        class="title text-5xl font-bold text-right"
+        >{{ gameDetails.name }}</a
+      >
     </div>
-    <div class="flex min-h-full">
+    <div class="main-container flex min-h-full">
       <div class="game-carousel flex flex-col m-5 mt-1 min-h-full">
         <app-image-carousel
           [images]="images"
@@ -43,17 +49,25 @@
             else elseAdded
           "
         >
-          <div class="px-2 flex justify-between items-center text-2xl bg-gradient-to-l from-slate-300 to-transparent dark:bg-gradient-to-l dark:from-slate-900 dark:to-transparent rounded-lg">
-            <div
-            class="added-text flex self-start gap-2 items-center m-4 px-2 py-1 text-black dark:text-white"
+          <div
+            class="mb-2 px-2 flex justify-between items-center text-2xl bg-gradient-to-l from-slate-300 to-transparent dark:bg-gradient-to-l dark:from-slate-900 dark:to-transparent rounded-lg"
           >
-            Added<i class="fa-solid fa-check"></i>
-          </div>
-          <p>${{ _shoppingCartService.getPrice(gameDetails) }}</p>
+            <div
+              class="added-text flex gap-2 items-center justify-center text-black dark:text-white"
+            >
+              Added<i class="fa-solid fa-check"></i>
+            </div>
+            <p
+              class="flex gap-2 items-center m-4 mx-0 px-2 py-1 text-black dark:text-white rounded-xl"
+            >
+              ${{ _shoppingCartService.getPrice(gameDetails) }}
+            </p>
           </div>
         </div>
         <ng-template #elseAdded>
-          <div class="px-2 flex justify-between items-center text-2xl bg-gradient-to-l from-slate-300 to-transparent dark:bg-gradient-to-l dark:from-slate-900 dark:to-transparent rounded-lg">
+          <div
+            class="mb-2 px-2 flex justify-between items-center text-2xl bg-gradient-to-l from-slate-300 to-transparent dark:bg-gradient-to-l dark:from-slate-900 dark:to-transparent rounded-lg"
+          >
             <p>${{ _shoppingCartService.getPrice(gameDetails) }}</p>
             <button
               class="add-to-cart-button flex gap-2 items-center m-4 mx-0 px-2 py-1 text-black dark:text-white rounded-xl"
@@ -70,7 +84,7 @@
             </button>
           </div>
         </ng-template>
-        <div class="flex justify-between gap-2">
+        <div class="flex justify-center">
           <div [ngSwitch]="gameDetails.esrb_rating.slug" class="esrb-rating">
             <div
               *ngSwitchCase="'mature'"
@@ -134,15 +148,6 @@
         </div>
         <div>
           <h3 class="text-2xl mt-4 font-bold">Additional info:</h3>
-          <div class="flex gap-1">
-            <p class="font-bold">Website:</p>
-            <a
-              href="{{ gameDetails.website }}"
-              target="_blank"
-              rel="noreferrer"
-              >{{ gameDetails.website }}</a
-            >
-          </div>
           <div class="flex gap-1">
             <p class="font-bold">Released:</p>
             {{ formatDate(gameDetails.released) }}
