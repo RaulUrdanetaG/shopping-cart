@@ -20,7 +20,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'all-games/game/:slug',
+    path: 'all-games/game/:id',
     loadChildren: () =>
       import('./pages/game-details/game-details.module').then(
         (m) => m.GameDetailsModule
@@ -38,7 +38,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/new/new.module').then((m) => m.NewModule),
   },
-
   {
     path: '**',
     loadChildren: () =>

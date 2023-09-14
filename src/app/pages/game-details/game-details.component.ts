@@ -27,7 +27,7 @@ export class GameDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this._shoppingCartService.getCartLocal();
-    const gameIdParam = this.route.snapshot.paramMap.get('slug');
+    const gameIdParam = this.route.snapshot.paramMap.get('id');
     if (gameIdParam !== null) {
       this.gameId = parseInt(gameIdParam);
     } else {
