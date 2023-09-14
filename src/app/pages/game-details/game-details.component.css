@@ -1,0 +1,34 @@
+.game-carousel {
+  width: 70vw;
+}
+
+.game-desc {
+  width: 20vw;
+}
+
+.esrb-rating {
+  max-width: 70%;
+  border: 2px solid rgb(51 65 85);
+}
+
+.description::-webkit-scrollbar {
+  background-color: #f1f5f9;
+  width: 3px;
+  margin-left: 10px;
+}
+
+.description::-webkit-scrollbar-thumb {
+  background-color: #0f172a;
+}
+
+@media (prefers-color-scheme: dark) {
+  .description::-webkit-scrollbar {
+    background-color: #1e293b;
+    width: 3px;
+    margin-left: 10px;
+  }
+
+  .description::-webkit-scrollbar-thumb {
+    background-color: #0f172a;
+  }
+}

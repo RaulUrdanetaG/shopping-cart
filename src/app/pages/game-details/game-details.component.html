@@ -19,47 +19,155 @@
 
 <ng-template #elseBlock>
   <div
-    class="bg-slate-100 dark:bg-slate-800 text-black dark:text-white min-h-full flex"
+    class="bg-slate-100 dark:bg-slate-800 text-black dark:text-white min-h-full flex flex-col"
   >
-    <div class="flex flex-col">
-      <button class="text-2xl">
+    <div class="flex justify-between m-5 mt-1 mb-1">
+      <button class="text-2xl text-left" routerLink="/all-games">
         <i class="fa-solid fa-arrow-left"></i> Return
       </button>
-      <app-image-carousel
-        [images]="images"
-        [autoSlide]="true"
-      ></app-image-carousel>
+      <h2 class="text-5xl font-bold">{{ gameDetails.name }}</h2>
     </div>
-    <div>
-      <h2>{{ gameDetails.name }}</h2>
-      <div>
+    <div class="flex min-h-full">
+      <div class="game-carousel flex flex-col m-5 mt-1 min-h-full">
+        <app-image-carousel
+          [images]="images"
+          [autoSlide]="false"
+        ></app-image-carousel>
+      </div>
+      <div
+        class="game-desc flex flex-col justify-between flex-1 mb-5 mr-3 p-2 rounded-md bg-gradient-to-t from-slate-300 to-transparent dark:bg-gradient-to-t dark:from-slate-900 dark:to-transparent"
+      >
         <div
           *ngIf="
             _shoppingCartService.productExists(gameDetails.id);
             else elseAdded
           "
         >
-          <div
+          <div class="px-2 flex justify-between items-center text-2xl bg-gradient-to-l from-slate-300 to-transparent dark:bg-gradient-to-l dark:from-slate-900 dark:to-transparent rounded-lg">
+            <div
             class="added-text flex self-start gap-2 items-center m-4 px-2 py-1 text-black dark:text-white"
           >
             Added<i class="fa-solid fa-check"></i>
           </div>
+          <p>${{ _shoppingCartService.getPrice(gameDetails) }}</p>
+          </div>
         </div>
         <ng-template #elseAdded>
-          <button
-            class="add-to-cart-button flex gap-2 items-center m-4 px-2 py-1 text-black dark:text-white rounded-xl"
-            (click)="
-              _shoppingCartService.addToCart(
-                gameDetails.id,
-                gameDetails.name,
-                _shoppingCartService.getPrice(gameDetails),
-                gameDetails.background_image
-              )
-            "
-          >
-            Add to cart <i class="fa-regular fa-plus"></i>
-          </button>
+          <div class="px-2 flex justify-between items-center text-2xl bg-gradient-to-l from-slate-300 to-transparent dark:bg-gradient-to-l dark:from-slate-900 dark:to-transparent rounded-lg">
+            <p>${{ _shoppingCartService.getPrice(gameDetails) }}</p>
+            <button
+              class="add-to-cart-button flex gap-2 items-center m-4 mx-0 px-2 py-1 text-black dark:text-white rounded-xl"
+              (click)="
+                _shoppingCartService.addToCart(
+                  gameDetails.id,
+                  gameDetails.name,
+                  _shoppingCartService.getPrice(gameDetails),
+                  gameDetails.background_image
+                )
+              "
+            >
+              Add to cart <i class="fa-regular fa-plus"></i>
+            </button>
+          </div>
         </ng-template>
+        <div class="flex justify-between gap-2">
+          <div [ngSwitch]="gameDetails.esrb_rating.slug" class="esrb-rating">
+            <div
+              *ngSwitchCase="'mature'"
+              class="flex gap-2 p-2 rounded-md items-center"
+            >
+              <img
+                src="https://www.esrb.org/wp-content/uploads/2019/05/M.svg"
+                alt="Mature srb rating"
+              />
+              <p>
+                May contain violence, blood and gore, sexual content, strong
+                language, drug use, nudity, and/or crude humor.
+              </p>
+            </div>
+            <div
+              *ngSwitchCase="'teen'"
+              class="flex gap-2 p-2 rounded-md items-center"
+            >
+              <img
+                src="https://www.esrb.org/wp-content/uploads/2019/05/T.svg"
+                alt="teen srb rating"
+              />
+              <p>
+                May contain violence, suggestive themes, crude humor, minimal
+                blood, and/or infrequent use of strong language.
+              </p>
+            </div>
+            <div
+              *ngSwitchCase="'everyone-10-plus'"
+              class="flex gap-2 p-2 rounded-md items-center"
+            >
+              <img
+                src="https://www.esrb.org/wp-content/uploads/2019/05/E10plus.svg"
+                alt="teen srb rating"
+              />
+              <p>
+                May contain cartoon, fantasy, or mild violence, mild language,
+                and/or minimal suggestive themes.
+              </p>
+            </div>
+            <div
+              *ngSwitchCase="'everyone'"
+              class="flex gap-2 p-2 rounded-md items-center"
+            >
+              <img
+                src="https://www.esrb.org/wp-content/uploads/2019/05/E.svg"
+                alt="teen srb rating"
+              />
+              <p>
+                May contain cartoon, fantasy or mild violence, and/or the
+                infrequent use of mild language.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="description max-h-80 overflow-auto mt-3 rounded-md">
+          <h3 class="text-3xl font-bold">Description</h3>
+          <p class="p-1 pt-0">
+            {{ gameDetails.description_raw }}
+          </p>
+        </div>
+        <div>
+          <h3 class="text-2xl mt-4 font-bold">Additional info:</h3>
+          <div class="flex gap-1">
+            <p class="font-bold">Website:</p>
+            <a
+              href="{{ gameDetails.website }}"
+              target="_blank"
+              rel="noreferrer"
+              >{{ gameDetails.website }}</a
+            >
+          </div>
+          <div class="flex gap-1">
+            <p class="font-bold">Released:</p>
+            {{ formatDate(gameDetails.released) }}
+          </div>
+          <div class="flex gap-1">
+            <p class="font-bold">Genres:</p>
+            {{ loadList(genres) }}
+          </div>
+          <div class="flex gap-1">
+            <p class="font-bold">Platforms:</p>
+            {{ loadList(platforms) }}
+          </div>
+          <div class="flex gap-1">
+            <p class="font-bold">Developers:</p>
+            {{ loadList(devs) }}
+          </div>
+          <div class="flex gap-1">
+            <p class="font-bold">Publishers:</p>
+            {{ loadList(publishers) }}
+          </div>
+          <div class="flex gap-1">
+            <p class="font-bold">Metacritic score:</p>
+            {{ gameDetails.metacritic }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
