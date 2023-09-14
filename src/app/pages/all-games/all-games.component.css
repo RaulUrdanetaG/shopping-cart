@@ -2,3 +2,10 @@
   display: grid;
   grid-template-columns: 318px 1fr;
 }
+
+@media (max-width:750px){
+  .all-games-layout{
+    display: flex;
+    flex-direction: column;
+  }
+}

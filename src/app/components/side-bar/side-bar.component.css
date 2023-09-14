@@ -2,7 +2,7 @@
   max-height: 1000px;
 }
 
-.activeBtn{
+.activeBtn {
   background-color: rgb(203 213 225);
 }
 
@@ -12,13 +12,37 @@
   margin-left: 10px;
 }
 
+.close-side-bar{
+  display: none;
+}
+
 @media (prefers-color-scheme: dark) {
   .side-bar::-webkit-scrollbar {
     background-color: #1e293b;
     width: 3px;
     margin-left: 10px;
   }
-  .activeBtn{
+  .activeBtn {
     background-color: rgb(71 85 105);
+  }
+}
+
+@media (max-width: 750px) {
+  .side-bar {
+    display: none;
+  }
+
+  .displayed{
+    display: flex;
+  }
+
+  .categories{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+  }
+
+  .close-side-bar{
+    display: block;
   }
 }

@@ -7,7 +7,6 @@
 
 .game-card {
   grid-template-rows: auto auto;
-  
 }
 
 .game-card:hover{
@@ -38,4 +37,24 @@
   justify-self: start;
   align-self: flex-end;
   color: #5db7de;
+}
+
+.side-bar-button{
+  display: none;
+}
+
+@media (max-width:750px){
+  .games-grid{
+    grid-template-columns: 1fr;
+    margin-right: 8px;
+  }
+
+  .search-bar{
+    flex-direction: column;
+  }
+
+  .side-bar-button{
+    display: block;
+    border-radius: 50%;
+  }
 }

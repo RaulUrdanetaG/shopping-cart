@@ -18,17 +18,22 @@
 </div>
 
 <ng-template #elseBlock>
-  <div class="flex items-center justify-between my-7 mr-4 ml-2">
+  <div class="search-bar flex items-center justify-between my-7 mr-4 ml-2">
     <h2
       class="section-title text-black dark:text-white text-6xl font-bold mr-2"
     >
       {{ filterTitle }}
     </h2>
-    <app-search-bar></app-search-bar>
+    <div class="flex items-center gap-20 mt-2">
+      <button class="side-bar-button" (click)="openCloseSideBar()">
+        <i class="fa-solid fa-bars text-2xl text-black dark:text-white p-3 bg-slate-900 dark:bg-slate-700 side-bar-button"></i>
+      </button>
+      <app-search-bar></app-search-bar>
+    </div>
   </div>
   <div class="games-grid my-2 mr-4 ml-2">
     <div
-      class="game-card shadow-sm shadow-black dark:shadow-slate-700 max-w-80 grid bg-white dark:bg-slate-900 dark:text-white rounded-lg"
+      class="game-card shadow-sm shadow-black dark:shadow-slate-700 grid bg-white dark:bg-slate-900 dark:text-white rounded-lg"
       *ngFor="let game of gamesResponse?.results"
     >
       <div

@@ -1,262 +1,277 @@
 <aside
   class="side-bar ml-4 flex flex-col justify-start text-black dark:text-white text-2xl sticky top-2 overflow-y-auto"
+  [ngClass]="{ displayed: _openSideBarService.isOpen }"
 >
-  <div class="px-4 py-2 flex flex-col gap-1.5">
-    <h3 class="text-4xl">New releases</h3>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Last 30 days')"
-      (click)="selectButton('last30Days')"
-      [class.activeBtn]="activeButton === 'last30Days'"
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-calendar-days"></i>
-      </div>
-      Last 30 days
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('This week')"
-      (click)="selectButton('thisWeek')"
-      [class.activeBtn]="activeButton === 'thisWeek'"
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-fire-flame-curved"></i>
-      </div>
-      This week
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Next week')"
-      (click)="selectButton('nextWeek')"
-      [class.activeBtn]="activeButton === 'nextWeek'"
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-forward"></i>
-      </div>
-      Next week
-    </button>
+  <button class="close-side-bar text-end p-2" (click)="closeSideBar()">
+    <i class="fa-regular fa-circle-xmark"></i>
+  </button>
+  <div class="categories px-4 py-2 flex flex-col gap-1.5">
+    <div class="flex flex-col">
+      <h3 class="text-4xl">New releases</h3>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Last 30 days')"
+        (click)="selectButton('last30Days')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'last30Days'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-calendar-days"></i>
+        </div>
+        Last 30 days
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('This week')"
+        (click)="selectButton('thisWeek')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'thisWeek'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-fire-flame-curved"></i>
+        </div>
+        This week
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Next week')"
+        (click)="selectButton('nextWeek')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'nextWeek'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-forward"></i>
+        </div>
+        Next week
+      </button>
+    </div>
 
-    <h3 class="text-4xl">Top</h3>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Best of the year')"
-      (click)="selectButton('bestOfTheYear')"
-      [class.activeBtn]="activeButton === 'bestOfTheYear'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-trophy"></i>
-      </div>
-      Best of the year
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Popular in 2022')"
-      (click)="selectButton('popularIn2022')"
-      [class.activeBtn]="activeButton === 'popularIn2022'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-chart-line"></i>
-      </div>
-      Popular in 2022
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('All time top')"
-      (click)="selectButton('allTimeTop')"
-      [class.activeBtn]="activeButton === 'allTimeTop'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-crown"></i>
-      </div>
-      All time top
-    </button>
+    <div class="flex flex-col">
+      <h3 class="text-4xl">Top</h3>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Best of the year')"
+        (click)="selectButton('bestOfTheYear')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'bestOfTheYear'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        Best of the year
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Popular in 2022')"
+        (click)="selectButton('popularIn2022')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'popularIn2022'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        Popular in 2022
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('All time top')"
+        (click)="selectButton('allTimeTop')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'allTimeTop'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-crown"></i>
+        </div>
+        All time top
+      </button>
+    </div>
 
-    <h3 class="text-4xl">Platforms</h3>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('PC')"
-      (click)="selectButton('pc')"
-      [class.activeBtn]="activeButton === 'pc'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-brands fa-windows"></i>
-      </div>
-      PC
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Xbox')"
-      (click)="selectButton('xbox')"
-      [class.activeBtn]="activeButton === 'xbox'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-brands fa-xbox"></i>
-      </div>
-      Xbox
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Play Station')"
-      (click)="selectButton('playStation')"
-      [class.activeBtn]="activeButton === 'playStation'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-brands fa-playstation"></i>
-      </div>
-      Play Station
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Nintendo')"
-      (click)="selectButton('nintendo')"
-      [class.activeBtn]="activeButton === 'nintendo'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-n"></i>
-      </div>
-      Nintendo
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Android')"
-      (click)="selectButton('android')"
-      [class.activeBtn]="activeButton === 'android'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-brands fa-android"></i>
-      </div>
-      Android
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('macOs')"
-      (click)="selectButton('macOs')"
-      [class.activeBtn]="activeButton === 'macOs'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-brands fa-apple"></i>
-      </div>
-      macOs
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Linux')"
-      (click)="selectButton('linux')"
-      [class.activeBtn]="activeButton === 'linux'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-brands fa-linux"></i>
-      </div>
-      Linux
-    </button>
+    <div class="flex flex-col">
+      <h3 class="text-4xl">Platforms</h3>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('PC')"
+        (click)="selectButton('pc')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'pc'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-brands fa-windows"></i>
+        </div>
+        PC
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Xbox')"
+        (click)="selectButton('xbox')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'xbox'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-brands fa-xbox"></i>
+        </div>
+        Xbox
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Play Station')"
+        (click)="selectButton('playStation')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'playStation'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-brands fa-playstation"></i>
+        </div>
+        Play Station
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Nintendo')"
+        (click)="selectButton('nintendo')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'nintendo'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-n"></i>
+        </div>
+        Nintendo
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Android')"
+        (click)="selectButton('android')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'android'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-brands fa-android"></i>
+        </div>
+        Android
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('macOs')"
+        (click)="selectButton('macOs')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'macOs'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-brands fa-apple"></i>
+        </div>
+        macOs
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Linux')"
+        (click)="selectButton('linux')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'linux'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-brands fa-linux"></i>
+        </div>
+        Linux
+      </button>
+    </div>
 
-    <h3 class="text-4xl">Genres</h3>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Action')"
-      (click)="selectButton('action')"
-      [class.activeBtn]="activeButton === 'action'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-hand-fist"></i>
-      </div>
-      Action
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Strategy')"
-      (click)="selectButton('strategy')"
-      [class.activeBtn]="activeButton === 'strategy'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-chess-knight"></i>
-      </div>
-      Strategy
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('RPG')"
-      (click)="selectButton('rpg')"
-      [class.activeBtn]="activeButton === 'rpg'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-shield"></i>
-      </div>
-      RPG
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Shooter')"
-      (click)="selectButton('shooter')"
-      [class.activeBtn]="activeButton === 'shooter'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-gun"></i>
-      </div>
-      Shooter
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Adventure')"
-      (click)="selectButton('adventure')"
-      [class.activeBtn]="activeButton === 'adventure'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-regular fa-compass"></i>
-      </div>
-      Adventure
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Puzzle')"
-      (click)="selectButton('puzzle')"
-      [class.activeBtn]="activeButton === 'puzzle'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-puzzle-piece"></i>
-      </div>
-      Puzzle
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Racing')"
-      (click)="selectButton('racing')"
-      [class.activeBtn]="activeButton === 'racing'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-flag-checkered"></i>
-      </div>
-      Racing
-    </button>
-    <button
-      class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
-      (click)="applyFilter('Sports')"
-      (click)="selectButton('sports')"
-      [class.activeBtn]="activeButton === 'sports'"
-      
-    >
-      <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
-        <i class="fa-solid fa-basketball"></i>
-      </div>
-      Sports
-    </button>
+    <div class="flex flex-col">
+      <h3 class="text-4xl">Genres</h3>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Action')"
+        (click)="selectButton('action')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'action'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-hand-fist"></i>
+        </div>
+        Action
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Strategy')"
+        (click)="selectButton('strategy')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'strategy'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-chess-knight"></i>
+        </div>
+        Strategy
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('RPG')"
+        (click)="selectButton('rpg')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'rpg'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-shield"></i>
+        </div>
+        RPG
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Shooter')"
+        (click)="selectButton('shooter')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'shooter'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-gun"></i>
+        </div>
+        Shooter
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Adventure')"
+        (click)="selectButton('adventure')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'adventure'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-regular fa-compass"></i>
+        </div>
+        Adventure
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Puzzle')"
+        (click)="selectButton('puzzle')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'puzzle'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-puzzle-piece"></i>
+        </div>
+        Puzzle
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Racing')"
+        (click)="selectButton('racing')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'racing'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-flag-checkered"></i>
+        </div>
+        Racing
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Sports')"
+        (click)="selectButton('sports')"
+        (click)="closeSideBar()"
+        [class.activeBtn]="activeButton === 'sports'"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-basketball"></i>
+        </div>
+        Sports
+      </button>
+    </div>
   </div>
 </aside>
