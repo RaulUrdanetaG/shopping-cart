@@ -7,7 +7,7 @@
   max-width: 150px;
 }
 .games-cart {
-  height: 86vh;
+  max-height: 86vh;
 }
 
 .games-cart::-webkit-scrollbar {
@@ -30,4 +30,11 @@
 
 .check-out-button {
   background-color: #5db7de;
+}
+
+@media (max-width:430px){
+  .cart{
+    min-width: 100vw;
+    height: 100vh;
+  }
 }
