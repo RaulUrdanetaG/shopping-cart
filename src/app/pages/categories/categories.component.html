@@ -1,5 +1,5 @@
 <section
-  class="categories flex justify-start text-black dark:text-white text-2xl sticky top-2 overflow-y-auto bg-slate-200 dark:bg-slate-800"
+  class="flex justify-center text-black dark:text-white text-2xl sticky top-2 overflow-y-auto bg-slate-200 dark:bg-slate-800"
 >
   <div class="categories max-h-full px-4 py-2 flex flex-col flex-wrap gap-10">
     <div class="flex flex-col">
@@ -7,6 +7,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Last 30 days')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-calendar-days"></i>
@@ -16,6 +17,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('This week')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-fire-flame-curved"></i>
@@ -25,6 +27,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Next week')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-forward"></i>
@@ -38,6 +41,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Best of the year')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-trophy"></i>
@@ -47,6 +51,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Popular in 2022')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-chart-line"></i>
@@ -56,6 +61,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('All time top')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-crown"></i>
@@ -69,6 +75,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('PC')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-brands fa-windows"></i>
@@ -78,6 +85,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Xbox')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-brands fa-xbox"></i>
@@ -87,6 +95,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Play Station')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-brands fa-playstation"></i>
@@ -96,6 +105,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Nintendo')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-n"></i>
@@ -105,6 +115,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Android')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-brands fa-android"></i>
@@ -114,6 +125,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('macOs')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-brands fa-apple"></i>
@@ -123,6 +135,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Linux')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-brands fa-linux"></i>
@@ -136,6 +149,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Action')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-hand-fist"></i>
@@ -145,6 +159,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Arcade')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-gamepad"></i>
@@ -153,7 +168,78 @@
       </button>
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Board')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-chess-board"></i>
+        </div>
+        Board games
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Casual')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        Casual
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Family')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-people-roof"></i>
+        </div>
+        Family
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Fighting')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-mitten"></i>
+        </div>
+        Fighting
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Indie')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        Indie
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Multiplayer')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-users"></i>
+        </div>
+        Multiplayer
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Platform')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-chart-simple"></i>
+        </div>
+        Platformer
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Strategy')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-chess-knight"></i>
@@ -163,6 +249,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('RPG')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-shield"></i>
@@ -172,6 +259,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Shooter')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-gun"></i>
@@ -181,6 +269,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Adventure')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-regular fa-compass"></i>
@@ -190,6 +279,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Puzzle')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-puzzle-piece"></i>
@@ -199,6 +289,7 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Racing')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-flag-checkered"></i>
@@ -208,14 +299,186 @@
       <button
         class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
         (click)="applyFilter('Sports')"
+        routerLink="/all-games"
       >
         <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
           <i class="fa-solid fa-basketball"></i>
         </div>
         Sports
       </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Simulation')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-bus-simple"></i>
+        </div>
+        Simulation
+      </button>
     </div>
-    
-
+    <div class="flex flex-col">
+      <h3 class="text-4xl">Tags</h3>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Single player')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-1"></i>
+        </div>
+        Single player
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Co-op')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-2"></i>
+        </div>
+        Co-op
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Atmospheric')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-regular fa-image"></i>
+        </div>
+        Atmospheric
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Great Soundtrack')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-headphones"></i>
+        </div>
+        Great Soundtrack
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Open World')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-earth-americas"></i>
+        </div>
+        Open World
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Sandbox')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-bucket"></i>
+        </div>
+        Sandbox
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Crime')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-handcuffs"></i>
+        </div>
+        Crime
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Fantasy')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-wand-sparkles"></i>
+        </div>
+        Fantasy
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Medieval')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-brands fa-fort-awesome"></i>
+        </div>
+        Medieval
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Historical')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-landmark"></i>
+        </div>
+        Historical
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Hunting')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-hippo"></i>
+        </div>
+        Hunting
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Mistery')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        Mistery
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Sci-fi')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-atom"></i>
+        </div>
+        Sci-fi
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Horror')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-skull"></i>
+        </div>
+        Horror
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Classic')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-brands fa-redhat"></i>
+        </div>
+        Classic
+      </button>
+      <button
+        class="flex gap-4 items-center dark:hover:bg-slate-600 hover:bg-slate-300 p-2 rounded-lg"
+        (click)="applyFilter('Zombies')"
+        routerLink="/all-games"
+      >
+        <div class="px-1.5 rounded-lg text-white bg-slate-900 w-10 h-8">
+          <i class="fa-solid fa-biohazard"></i>
+        </div>
+        Zombies
+      </button>
+    </div>
   </div>
 </section>

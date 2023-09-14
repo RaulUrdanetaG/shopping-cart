@@ -112,6 +112,81 @@ export class FilterServiceService {
       case 'Arcade':
         newFilter = '&genres=arcade';
         break;
+      case 'Casual':
+        newFilter = '&genres=casual';
+        break;
+      case 'Simulation':
+        newFilter = '&genres=simulation';
+        break;
+      case 'Indie':
+        newFilter = '&genres=indie';
+        break;
+      case 'Platform':
+        newFilter = '&genres=platformer';
+        break;
+      case 'Multiplayer':
+        newFilter = '&genres=massively-multiplayer';
+        break;
+      case 'Fighting':
+        newFilter = '&genres=fighting';
+        break;
+      case 'Family':
+        newFilter = '&genres=family';
+        break;
+      case 'Board':
+        newFilter = '&genres=board-games';
+        break;
+      case 'Single player':
+        newFilter = '&tags=singleplayer';
+        break;
+      case 'Atmospheric':
+        newFilter = '&tags=atmospheric';
+        break;
+      case 'Great Soundtrack':
+        newFilter = '&tags=great-soundtrack';
+        break;
+      case 'Co-op':
+        newFilter = '&tags=co-op';
+        break;
+      case 'Open World':
+        newFilter = '&tags=open-world';
+        break;
+      case 'Sandbox':
+        newFilter = '&tags=sandbox';
+        break;
+      case 'Crime':
+        newFilter = '&tags=crime';
+        break;
+      case 'Fantasy':
+        newFilter = '&tags=fantasy';
+        break;
+      case 'Medieval':
+        newFilter = '&tags=medieval';
+        break;
+      case 'Historical':
+        newFilter = '&tags=historical';
+        break;
+      case 'Hunting':
+        newFilter = '&tags=hunting';
+        break;
+      case 'Mistery':
+        newFilter = '&tags=mistery';
+        break;
+      case 'Sci-fi':
+        newFilter = '&tags=sci-fi';
+        break;
+      case 'Horror':
+        newFilter = '&tags=horror';
+        break;
+      case 'Classic':
+        newFilter = '&tags=classic';
+        break;
+      case 'Zombies':
+        newFilter = '&tags=zombies';
+        break;
+      case 'Horror':
+        newFilter = '&tags=horror';
+        break;
       default:
         break;
     }
