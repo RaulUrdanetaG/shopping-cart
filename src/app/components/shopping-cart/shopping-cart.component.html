@@ -15,7 +15,7 @@
     <div class="games-cart overflow-auto flex flex-col gap-2">
       <div
         *ngFor="let game of cart"
-        class="flex flex-col gap-2 dark:bg-slate-800 rounded-lg p-2"
+        class="flex flex-col gap-2 bg-slate-200 dark:bg-slate-800 rounded-lg p-2"
       >
         <button (click)="removeItem(game.id)" class="text-end">
           <i class="fa-solid fa-circle-xmark"></i>
