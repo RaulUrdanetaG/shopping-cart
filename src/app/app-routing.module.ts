@@ -34,11 +34,6 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'new',
-    loadChildren: () =>
-      import('./pages/new/new.module').then((m) => m.NewModule),
-  },
-  {
     path: '**',
     loadChildren: () =>
       import('./pages/not-found/not-found.module').then(

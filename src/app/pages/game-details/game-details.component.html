@@ -85,58 +85,60 @@
           </div>
         </ng-template>
         <div class="flex justify-center">
-          <div [ngSwitch]="gameDetails.esrb_rating.slug" class="esrb-rating">
-            <div
-              *ngSwitchCase="'mature'"
-              class="flex gap-2 p-2 rounded-md items-center"
-            >
-              <img
-                src="https://www.esrb.org/wp-content/uploads/2019/05/M.svg"
-                alt="Mature srb rating"
-              />
-              <p>
-                May contain violence, blood and gore, sexual content, strong
-                language, drug use, nudity, and/or crude humor.
-              </p>
-            </div>
-            <div
-              *ngSwitchCase="'teen'"
-              class="flex gap-2 p-2 rounded-md items-center"
-            >
-              <img
-                src="https://www.esrb.org/wp-content/uploads/2019/05/T.svg"
-                alt="teen srb rating"
-              />
-              <p>
-                May contain violence, suggestive themes, crude humor, minimal
-                blood, and/or infrequent use of strong language.
-              </p>
-            </div>
-            <div
-              *ngSwitchCase="'everyone-10-plus'"
-              class="flex gap-2 p-2 rounded-md items-center"
-            >
-              <img
-                src="https://www.esrb.org/wp-content/uploads/2019/05/E10plus.svg"
-                alt="teen srb rating"
-              />
-              <p>
-                May contain cartoon, fantasy, or mild violence, mild language,
-                and/or minimal suggestive themes.
-              </p>
-            </div>
-            <div
-              *ngSwitchCase="'everyone'"
-              class="flex gap-2 p-2 rounded-md items-center"
-            >
-              <img
-                src="https://www.esrb.org/wp-content/uploads/2019/05/E.svg"
-                alt="teen srb rating"
-              />
-              <p>
-                May contain cartoon, fantasy or mild violence, and/or the
-                infrequent use of mild language.
-              </p>
+          <div *ngIf="isRating()">
+            <div [ngSwitch]="gameDetails.esrb_rating.slug" class="esrb-rating">
+              <div
+                *ngSwitchCase="'mature'"
+                class="flex gap-2 p-2 rounded-md items-center"
+              >
+                <img
+                  src="https://www.esrb.org/wp-content/uploads/2019/05/M.svg"
+                  alt="Mature srb rating"
+                />
+                <p>
+                  May contain violence, blood and gore, sexual content, strong
+                  language, drug use, nudity, and/or crude humor.
+                </p>
+              </div>
+              <div
+                *ngSwitchCase="'teen'"
+                class="flex gap-2 p-2 rounded-md items-center"
+              >
+                <img
+                  src="https://www.esrb.org/wp-content/uploads/2019/05/T.svg"
+                  alt="teen srb rating"
+                />
+                <p>
+                  May contain violence, suggestive themes, crude humor, minimal
+                  blood, and/or infrequent use of strong language.
+                </p>
+              </div>
+              <div
+                *ngSwitchCase="'everyone-10-plus'"
+                class="flex gap-2 p-2 rounded-md items-center"
+              >
+                <img
+                  src="https://www.esrb.org/wp-content/uploads/2019/05/E10plus.svg"
+                  alt="teen srb rating"
+                />
+                <p>
+                  May contain cartoon, fantasy, or mild violence, mild language,
+                  and/or minimal suggestive themes.
+                </p>
+              </div>
+              <div
+                *ngSwitchCase="'everyone'"
+                class="flex gap-2 p-2 rounded-md items-center"
+              >
+                <img
+                  src="https://www.esrb.org/wp-content/uploads/2019/05/E.svg"
+                  alt="teen srb rating"
+                />
+                <p>
+                  May contain cartoon, fantasy or mild violence, and/or the
+                  infrequent use of mild language.
+                </p>
+              </div>
             </div>
           </div>
         </div>

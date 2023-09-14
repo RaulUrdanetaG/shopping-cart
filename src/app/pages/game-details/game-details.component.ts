@@ -50,6 +50,7 @@ export class GameDetailsComponent implements OnInit {
         gameIdResponse.publishers.forEach((pub: any) => {
           this.publishers.push(pub.name);
         });
+        console.log(this.images);
       });
 
     this._getGameService
@@ -73,5 +74,9 @@ export class GameDetailsComponent implements OnInit {
 
   loadList(list: any) {
     return list.join(', ');
+  }
+
+  isRating() {
+    return this.gameDetails.esrb_rating === null ? false : true;
   }
 }

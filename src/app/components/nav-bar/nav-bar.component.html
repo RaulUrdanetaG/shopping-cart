@@ -14,7 +14,6 @@
       <li>
         <a routerLink="/categories" routerLinkActive="active">Categories</a>
       </li>
-      <li><a routerLink="/new" routerLinkActive="active">New</a></li>
     </ul>
     <button (click)="openCart()">
       <div *ngIf="cartIsFilled(); else elseCart">

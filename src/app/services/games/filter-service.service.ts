@@ -109,6 +109,9 @@ export class FilterServiceService {
       case 'Sports':
         newFilter = '&genres=sports';
         break;
+      case 'Arcade':
+        newFilter = '&genres=arcade';
+        break;
       default:
         break;
     }
