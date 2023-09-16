@@ -11,6 +11,11 @@
   justify-content: center;
 }
 
+.rp-rating{
+  width: 60.42px;
+  height: 90.63px;
+}
+
 .description::-webkit-scrollbar {
   background-color: #f1f5f9;
   width: 3px;

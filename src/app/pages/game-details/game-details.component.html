@@ -139,6 +139,18 @@
                   infrequent use of mild language.
                 </p>
               </div>
+              <div
+                *ngSwitchCase="'rating-pending'"
+                class="flex gap-2 p-2 rounded-md items-center "
+              >
+                <img class="rp-rating"
+                  src="https://www.esrb.org/wp-content/uploads/2019/05/RP.svg"
+                  alt="srb rating pending"
+                />
+                <p>
+                  Have not yet been assigned a final rating
+                </p>
+              </div>
             </div>
           </div>
         </div>
