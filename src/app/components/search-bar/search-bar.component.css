@@ -48,8 +48,26 @@
   }
 }
 
+@media (max-width:750px){
+  .search-list{
+    right: 0;
+    top: 200px;
+    max-height: 90vh;
+    min-width: 100vw;
+  }
+}
+
 @media (max-width:700px){
   .search-input{
     width: 100%;
+  }
+
+  .game-thumbnail{
+    width: 165.5px;
+    height: auto;
+  }
+
+  .game-text{
+    max-width: 50%;
   }
 }
