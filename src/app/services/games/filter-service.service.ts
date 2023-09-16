@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, concatAll } from 'rxjs';
 import format from 'date-fns/format';
 import subDays from 'date-fns/subDays';
 import previousMonday from 'date-fns/previousMonday';
@@ -29,6 +29,7 @@ export class FilterServiceService {
     let newFilter: string = '';
 
     let date = format(new Date(), 'yyyy-MM-dd');
+    let currentYear = format(new Date(), 'yyyy');
 
     let last30Days = `${format(
       subDays(new Date(date), 30),
@@ -56,7 +57,7 @@ export class FilterServiceService {
         newFilter = `&dates=${nextWeek}&ordering=-rating`;
         break;
       case 'Best of the year':
-        newFilter = '&dates=2023-01-01,2023-12-31';
+        newFilter = `&dates=${currentYear}-01-01,${currentYear}-12-31`;
         break;
       case 'Popular in 2022':
         newFilter = '&dates=2022-01-01,2022-12-31&ordering=-added';
@@ -65,25 +66,25 @@ export class FilterServiceService {
         newFilter = '&metacritic=92,100&ordering=-added';
         break;
       case 'PC':
-        newFilter = '&parent_platforms=4';
-        break;
-      case 'Xbox':
-        newFilter = '&parent_platforms=3';
+        newFilter = '&parent_platforms=1&platforms_count=1';
         break;
       case 'Play Station':
-        newFilter = '&parent_platforms=2&ordering=-metacritic';
+        newFilter = '&parent_platforms=2&platforms_count=1';
+        break;
+      case 'Xbox':
+        newFilter = '&parent_platforms=3&platforms_count=1';
         break;
       case 'Nintendo':
-        newFilter = '&parent_platforms=7&ordering=-metacritic';
+        newFilter = '&parent_platforms=7&platforms_count=1';
         break;
       case 'Android':
-        newFilter = '&parent_platforms=8';
+        newFilter = '&parent_platforms=8&platforms_count=1';
         break;
       case 'macOs':
-        newFilter = '&parent_platforms=5';
+        newFilter = '&parent_platforms=4,5&platforms_count=1';
         break;
       case 'Linux':
-        newFilter = '&platforms=6';
+        newFilter = '&platforms=6&platforms_count=1';
         break;
       case 'Action':
         newFilter = '&genres=action';
